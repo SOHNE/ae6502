@@ -6,6 +6,8 @@ module.exports = {
   },
   rules: {
     '@typescript-eslint/no-inferrable-types': 'off',
+    'no-unused-vars': 'off',
+    '@typescript-eslint/no-unused-vars': 'off',
   },
   plugins: ['@typescript-eslint', 'prettier'],
 }
