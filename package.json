@@ -1,6 +1,7 @@
 {
-  "name": "ts-monorepo",
-  "description": "Template for setting up a TypeScript monorepo",
+  "name": "ae6502",
+  "description": "MOS 6502 toolchain",
+  "author": "Leandro Peres <hello@peres.dev>",
   "private": true,
   "workspaces": [
     "packages/*"
@@ -14,7 +15,6 @@
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",
-    "@nighttrax/eslint-config-tsx": "~12.0.0-alpha.2",
     "doctoc": "~2.2.0",
     "eslint": "~8.57.0",
     "eslint-plugin-import": "~2.31.0",
