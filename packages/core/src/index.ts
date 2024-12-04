@@ -125,6 +125,13 @@ export const ADDRESSING_MODES: Record<string, InstructionAddressing> = {
 };
 
 /**
+ * Represents the valid addressing modes for 6502 assembly instructions.
+ *
+ * @typeParam AddressingMode - A string literal type representing a 6502 addressing mode
+ */
+export type AddressingMode = keyof typeof ADDRESSING_MODES;
+
+/**
  * A collection of instructions available in the CPU instruction set.
  * Each instruction has a unique opcode, the number of cycles required to execute,
  * and the addressing mode it uses.
