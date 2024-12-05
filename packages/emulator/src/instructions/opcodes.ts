@@ -51,6 +51,20 @@ export class LDX extends BaseInstruction {
   }
 }
 
+/* -------------------------------------- LDY Command ------------------------------------------------------- */
+// https://www.masswerk.at/6502/6502_instruction_set.html#LDY
+// Instruction: Load Y Register (LDY)
+// Function:    Y = M
+// Description: Loads a value from memory (address) into the Y index register.
+// Flags Out:   N (Negative), Z (Zero)
+export class LDY extends BaseInstruction {
+  execute(cpu: ICPU): boolean {
+    cpu.registers.Y = cpu.Read(cpu.operandAddress);
+    super.updateNZ(cpu, cpu.registers.Y);
+    return true;
+  }
+}
+
 /* -------------------------------------- STA Command ------------------------------------------------------- */
 // Instruction: Store Accumulator (STA)
 // Function:    M = A

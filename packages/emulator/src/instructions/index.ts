@@ -37,11 +37,11 @@ export class InstructionSet {
       [0xAE, { command: op.LDX.getInstance("LDX"), mode: "ABSOLUTE" }],
       [0xBE, { command: op.LDX.getInstance("LDX"), mode: "ABSOLUTE_Y" }],
 
-      // [0xA0, { command: op.LDY.getInstance("LDY"), mode: "IMMEDIATE" }],
-      // [0xA4, { command: op.LDY.getInstance("LDY"), mode: "ZERO_PAGE" }],
-      // [0xB4, { command: op.LDY.getInstance("LDY"), mode: "ZERO_PAGE_X" }],
-      // [0xAC, { command: op.LDY.getInstance("LDY"), mode: "ABSOLUTE" }],
-      // [0xBC, { command: op.LDY.getInstance("LDY"), mode: "ABSOLUTE_X" }],
+      [0xA0, { command: op.LDY.getInstance("LDY"), mode: "IMMEDIATE" }],
+      [0xA4, { command: op.LDY.getInstance("LDY"), mode: "ZERO_PAGE" }],
+      [0xB4, { command: op.LDY.getInstance("LDY"), mode: "ZERO_PAGE_X" }],
+      [0xAC, { command: op.LDY.getInstance("LDY"), mode: "ABSOLUTE" }],
+      [0xBC, { command: op.LDY.getInstance("LDY"), mode: "ABSOLUTE_X" }],
 
       /** STORE OPERATIONS */
       [0x85, { command: op.STA.getInstance("STA"), mode: "ZERO_PAGE" }],
