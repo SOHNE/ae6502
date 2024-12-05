@@ -66,34 +66,34 @@ export class STA extends BaseInstruction {
 /* -------------------------------------- BRK Command ------------------------------------------------------- */
 // Instruction: Break (BRK)
 // Function:    Interrupt
-// Description: Triggers a software interrupt. It saves the current program counter (PC) and processor status
-//              onto the stack, disables interrupts, and then sets the PC to the interrupt vector address.
-// Flags Out:   I (Interrupt Disable), B (Break)
+// Description: Triggers a software interrupt. It saves the current program counter (PC+2) and processor status
+//              onto the stack. Does NOT automatically disable interrupts.
+// Flags Out:   B (Break) is set when pushed to stack
 export class BRK extends BaseInstruction {
   execute(cpu: ICPU): boolean {
     switch (cpu.cycles) {
       case 1:
-        // Already done
-        //cpu.cpuState.PC++;
+        // Increment PC to skip the break mark (PC+2)
+        cpu.registers.PC++;
         break;
 
       case 2:
+        // Set Break flag
         cpu.registers.P |= 0x10; // Set Break flag
         break;
 
       case 3:
-        // Push PCH onto stack
-        cpu.Push((cpu.registers.PC - 1) >> 8);
+        // Push PCH of PC+2 onto stack
+        cpu.Push((cpu.registers.PC >> 8) & 0xFF);
         break;
 
       case 4:
-        // Push PCL onto stack
-        cpu.Push((cpu.registers.PC - 1) & 0xFF);
+        // Push PCL of PC+2 onto stack
+        cpu.Push(cpu.registers.PC & 0xFF);
         break;
 
       case 5:
-        // Set Interrupt Disable flag and push processor status onto stack
-        cpu.registers.P |= 0x04; // Set Interrupt Disable flag
+        // Push processor status onto stack with Break flag set
         cpu.Push(cpu.registers.P);
         break;
 
@@ -111,4 +111,3 @@ export class BRK extends BaseInstruction {
     return false;
   }
 }
-
