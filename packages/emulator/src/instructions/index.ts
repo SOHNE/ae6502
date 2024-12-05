@@ -52,13 +52,13 @@ export class InstructionSet {
       [0x81, { command: op.STA.getInstance("STA"), mode: "INDEXED_INDIRECT" }],
       [0x91, { command: op.STA.getInstance("STA"), mode: "INDIRECT_INDEXED" }],
 
-      // [0x86, { command: op.STX.getInstance("STX"), mode: "ZERO_PAGE" }],
-      // [0x96, { command: op.STX.getInstance("STX"), mode: "ZERO_PAGE_Y" }],
-      // [0x8E, { command: op.STX.getInstance("STX"), mode: "ABSOLUTE" }],
+      [0x86, { command: op.STX.getInstance("STX"), mode: "ZERO_PAGE" }],
+      [0x96, { command: op.STX.getInstance("STX"), mode: "ZERO_PAGE_Y" }],
+      [0x8E, { command: op.STX.getInstance("STX"), mode: "ABSOLUTE" }],
 
-      // [0x84, { command: op.STY.getInstance("STY"), mode: "ZERO_PAGE" }],
-      // [0x94, { command: op.STY.getInstance("STY"), mode: "ZERO_PAGE_X" }],
-      // [0x8C, { command: op.STY.getInstance("STY"), mode: "ABSOLUTE" }],
+      [0x84, { command: op.STY.getInstance("STY"), mode: "ZERO_PAGE" }],
+      [0x94, { command: op.STY.getInstance("STY"), mode: "ZERO_PAGE_X" }],
+      [0x8C, { command: op.STY.getInstance("STY"), mode: "ABSOLUTE" }],
 
       /** TRANSFER OPERATIONS */
       // [0xAA, { command: op.TAX.getInstance("TAX"), mode: "IMPLIED" }],

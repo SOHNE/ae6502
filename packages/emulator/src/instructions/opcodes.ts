@@ -66,6 +66,7 @@ export class LDY extends BaseInstruction {
 }
 
 /* -------------------------------------- STA Command ------------------------------------------------------- */
+// https://www.masswerk.at/6502/6502_instruction_set.html#STA
 // Instruction: Store Accumulator (STA)
 // Function:    M = A
 // Description: Stores the value from the accumulator register (A) into memory at the specified address.
@@ -73,6 +74,32 @@ export class LDY extends BaseInstruction {
 export class STA extends BaseInstruction {
   execute(cpu: ICPU): boolean {
     cpu.Write(cpu.operandAddress, cpu.registers.A);
+    return true;
+  }
+}
+
+/* -------------------------------------- STX Command ------------------------------------------------------- */
+// https://www.masswerk.at/6502/6502_instruction_set.html#STX
+// Instruction: Store X Register (STX)
+// Function:    M = X
+// Description: Stores the value from the X register into memory at the specified address.
+// Flags Out:   None
+export class STX extends BaseInstruction {
+  execute(cpu: ICPU): boolean {
+    cpu.Write(cpu.operandAddress, cpu.registers.X);
+    return true;
+  }
+}
+
+/* -------------------------------------- STY Command ------------------------------------------------------- */
+// https://www.masswerk.at/6502/6502_instruction_set.html#STY
+// Instruction: Store X Register (STY)
+// Function:    M = Y
+// Description: Stores the value from the Y register into memory at the specified address.
+// Flags Out:   None
+export class STY extends BaseInstruction {
+  execute(cpu: ICPU): boolean {
+    cpu.Write(cpu.operandAddress, cpu.registers.Y);
     return true;
   }
 }
