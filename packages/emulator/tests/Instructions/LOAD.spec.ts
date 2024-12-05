@@ -2,11 +2,7 @@ import { Emulator } from "@sohne/emulator";
 
 // TODO: Implement ABSOLUTE's and INDIRECTS's
 describe('LOAD Instructions', () => {
-  let cpu: Emulator;
-
-  beforeAll(() => {
-    cpu = new Emulator();
-  });
+  const cpu = new Emulator();
 
   beforeEach((): void => {
     cpu.Reset();
