@@ -61,12 +61,12 @@ export class InstructionSet {
       [0x8C, { command: op.STY.getInstance("STY"), mode: "ABSOLUTE" }],
 
       /** TRANSFER OPERATIONS */
-      // [0xAA, { command: op.TAX.getInstance("TAX"), mode: "IMPLIED" }],
-      // [0xA8, { command: op.TAY.getInstance("TAY"), mode: "IMPLIED" }],
-      // [0xBA, { command: op.TSX.getInstance("TSX"), mode: "IMPLIED" }],
-      // [0x8A, { command: op.TXA.getInstance("TXA"), mode: "IMPLIED" }],
-      // [0x9A, { command: op.TXS.getInstance("TXS"), mode: "IMPLIED" }],
-      // [0x98, { command: op.TYA.getInstance("TYA"), mode: "IMPLIED" }],
+      [0xAA, { command: op.TAX.getInstance("TAX"), mode: "IMPLIED" }],
+      [0xA8, { command: op.TAY.getInstance("TAY"), mode: "IMPLIED" }],
+      [0xBA, { command: op.TSX.getInstance("TSX"), mode: "IMPLIED" }],
+      [0x8A, { command: op.TXA.getInstance("TXA"), mode: "IMPLIED" }],
+      [0x9A, { command: op.TXS.getInstance("TXS"), mode: "IMPLIED" }],
+      [0x98, { command: op.TYA.getInstance("TYA"), mode: "IMPLIED" }],
 
       /** ARITHMETIC OPERATIONS */
       /*[0x69, { command: op.ADC.getInstance("ADC"), mode: "IMMEDIATE" }],*/

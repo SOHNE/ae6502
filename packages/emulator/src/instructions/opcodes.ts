@@ -104,6 +104,89 @@ export class STY extends BaseInstruction {
   }
 }
 
+/* -------------------------------------- TAX Command ------------------------------------------------------- */
+// https://www.masswerk.at/6502/6502_instruction_set.html#TAX
+// Instruction: Transfer A to X
+// Function:    X = A
+// Description: Transfers the value from the Accumulator to the X register
+// Flags Out:   N, Z
+export class TAX extends BaseInstruction {
+  execute(cpu: ICPU): boolean {
+    cpu.registers.X = cpu.registers.A;
+    super.updateNZ(cpu, cpu.registers.X);
+    return true;
+  }
+}
+
+/* -------------------------------------- TAY Command ------------------------------------------------------- */
+// https://www.masswerk.at/6502/6502_instruction_set.html#TAY
+// Instruction: Transfer A to Y
+// Function:    Y = A
+// Description: Transfers the value from the Accumulator to the Y register
+// Flags Out:   N, Z
+export class TAY extends BaseInstruction {
+  execute(cpu: ICPU): boolean {
+    cpu.registers.Y = cpu.registers.A;
+    super.updateNZ(cpu, cpu.registers.Y);
+    return true;
+  }
+}
+
+/* -------------------------------------- TSX Command ------------------------------------------------------- */
+// https://www.masswerk.at/6502/6502_instruction_set.html#TSX
+// Instruction: Transfer Stack Pointer to X
+// Function:    X = SP
+// Description: Transfers the value from the Stack Pointer to the X register
+// Flags Out:   N, Z
+export class TSX extends BaseInstruction {
+  execute(cpu: ICPU): boolean {
+    cpu.registers.X = cpu.registers.SP;
+    super.updateNZ(cpu, cpu.registers.X);
+    return true;
+  }
+}
+
+/* -------------------------------------- TXA Command ------------------------------------------------------- */
+// https://www.masswerk.at/6502/6502_instruction_set.html#TXA
+// Instruction: Transfer X to A
+// Function:    A = X
+// Description: Transfers the value from the X register to the Accumulator
+// Flags Out:   N, Z
+export class TXA extends BaseInstruction {
+  execute(cpu: ICPU): boolean {
+    cpu.registers.A = cpu.registers.X;
+    super.updateNZ(cpu, cpu.registers.A);
+    return true;
+  }
+}
+
+/* -------------------------------------- TXS Command ------------------------------------------------------- */
+// https://www.masswerk.at/6502/6502_instruction_set.html#TXS
+// Instruction: Transfer X to Stack Pointer
+// Function:    SP = X
+// Description: Transfers the value from the X register to the Stack Pointer
+// Flags Out:   None
+export class TXS extends BaseInstruction {
+  execute(cpu: ICPU): boolean {
+    cpu.registers.SP = cpu.registers.X;
+    return true;
+  }
+}
+
+/* -------------------------------------- TYA Command ------------------------------------------------------- */
+// https://www.masswerk.at/6502/6502_instruction_set.html#TYA
+// Instruction: Transfer Y to A
+// Function:    A = Y
+// Description: Transfers the value from the Y register to the Accumulator
+// Flags Out:   N, Z
+export class TYA extends BaseInstruction {
+  execute(cpu: ICPU): boolean {
+    cpu.registers.A = cpu.registers.Y;
+    super.updateNZ(cpu, cpu.registers.A);
+    return true;
+  }
+}
+
 /* -------------------------------------- BRK Command ------------------------------------------------------- */
 // Instruction: Break (BRK)
 // Function:    Interrupt
